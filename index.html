@@ -12,8 +12,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a2463 0%, #247ba0 50%, #b2dbbf 100%);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fbfd 0%, #e8f1f7 100%);
+            color: #1a3a52;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,60 +26,66 @@
 
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            animation: fadeInDown 0.8s ease;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            color: #1a3a52;
+            margin-bottom: 50px;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border-radius: 12px;
+            border: 2px solid #e0ecf7;
         }
 
         .header h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            font-size: 3.2em;
+            margin-bottom: 15px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            color: #1a3a52;
         }
 
         .header p {
             font-size: 1.3em;
-            opacity: 0.95;
+            opacity: 1;
             font-style: italic;
+            color: #4a6fa5;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            color: #ffd700;
-            font-size: 1.2em;
-            margin-top: 15px;
+            color: #2a5aa0;
+            font-size: 1.15em;
+            margin-top: 12px;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 35px;
+            margin-bottom: 50px;
         }
 
         .section {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid #d4e5f3;
+            border-radius: 12px;
+            padding: 45px;
+            box-shadow: 0 8px 32px rgba(26, 58, 82, 0.1);
             animation: fadeInUp 1s ease;
         }
 
         .section h2 {
-            color: #0a2463;
-            font-size: 2em;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #247ba0;
+            color: #1a3a52;
+            font-size: 1.7em;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            border-bottom: 3px solid #2a5aa0;
             padding-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 12px;
+            font-weight: 700;
         }
 
         .itinerary {
@@ -88,38 +95,41 @@
         }
 
         .event-card {
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
-            border-radius: 12px;
-            padding: 18px;
-            border-left: 5px solid #247ba0;
+            background: linear-gradient(135deg, #f5f9fd 0%, #eef5fb 100%);
+            border-radius: 8px;
+            padding: 22px;
+            border: 1px solid #d4e5f3;
+            border-left: 5px solid #2a5aa0;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .event-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 20px rgba(36, 123, 160, 0.2);
-            background: linear-gradient(135deg, #e0efff 0%, #d8e9f5 100%);
+            transform: translateX(6px);
+            box-shadow: 0 8px 24px rgba(42, 90, 160, 0.2);
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
+            border-left: 5px solid #4a8fd4;
         }
 
         .event-time {
             font-size: 1.6em;
             font-weight: 800;
-            color: #247ba0;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 6px;
+            color: #2a5aa0;
+            font-family: 'Segoe UI', sans-serif;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .event-title {
-            font-size: 1.2em;
-            color: #0a2463;
+            font-size: 1.15em;
+            color: #1a3a52;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .event-location {
             font-size: 0.95em;
-            color: #666;
+            color: #4a6fa5;
         }
 
         .menu-section {
@@ -127,80 +137,88 @@
         }
 
         .menu-course {
-            background: linear-gradient(135deg, #fff9e6 0%, #fffef0 100%);
-            border-left: 4px solid #ffd700;
-            padding: 16px;
-            margin-bottom: 15px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
+            border-left: 4px solid #4a8fd4;
+            padding: 20px;
+            margin-bottom: 18px;
             border-radius: 8px;
             transition: all 0.3s ease;
+            border: 1px solid #d4e5f3;
         }
 
         .menu-course:hover {
-            background: linear-gradient(135deg, #ffedd0 0%, #fffff0 100%);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            background: linear-gradient(135deg, #e8f0f8 0%, #dfe8f5 100%);
+            box-shadow: 0 6px 20px rgba(42, 90, 160, 0.15);
+            border-left: 4px solid #2a5aa0;
         }
 
         .course-title {
-            font-size: 1.1em;
+            font-size: 1.15em;
             font-weight: 700;
-            color: #0a2463;
-            margin-bottom: 10px;
+            color: #1a3a52;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .course-items {
             font-size: 0.95em;
-            color: #333;
-            line-height: 1.8;
+            color: #1a3a52;
+            line-height: 1.9;
         }
 
         .course-items ul {
-            margin-left: 20px;
-            margin-top: 8px;
+            margin-left: 24px;
+            margin-top: 10px;
         }
 
         .course-items li {
-            margin-bottom: 6px;
-            color: #555;
+            margin-bottom: 8px;
+            color: #4a6fa5;
         }
 
         .price-highlight {
-            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
-            color: #0a2463;
-            padding: 15px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #1a3a52 0%, #2a5aa0 100%);
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
             font-weight: 600;
             text-align: center;
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 6px 20px rgba(26, 58, 82, 0.2);
         }
 
         .special-note {
-            background: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 12px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
+            border-left: 4px solid #2a5aa0;
+            padding: 18px;
             border-radius: 8px;
             font-size: 0.95em;
-            color: #2e7d32;
-            margin-top: 15px;
+            color: #1a3a52;
+            margin-top: 20px;
             font-weight: 500;
+            border: 1px solid #d4e5f3;
         }
 
         .footer {
             text-align: center;
-            color: white;
+            color: #1a3a52;
             font-size: 1.1em;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            padding: 50px 30px;
+            border-top: 2px solid #d4e5f3;
+            border-radius: 12px;
+            margin-top: 60px;
+            box-shadow: 0 4px 15px rgba(26, 58, 82, 0.08);
         }
 
         .footer strong {
-            color: #ffd700;
+            color: #2a5aa0;
             font-weight: 700;
         }
 
@@ -276,12 +294,54 @@
         .icon {
             font-size: 1.4em;
         }
+
+        .cat-logo {
+            width: 320px;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+            opacity: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .cat-logo:hover {
+            transform: scale(1.08);
+        }
+
+        .calendar-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2a5aa0 0%, #1a3a52 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(26, 58, 82, 0.15);
+        }
+
+        .calendar-button:hover {
+            background: linear-gradient(135deg, #4a8fd4 0%, #2a5aa0 100%);
+            box-shadow: 0 10px 30px rgba(26, 58, 82, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .calendar-button:active {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <div class="header">
+            <img src="https://loulastaverna.com/wp-content/uploads/2023/08/Loulas_Animation_Cat.gif" alt="Loula's Taverna Cat & Gramophone" class="cat-logo">
             <h1>🎉 Larissa's 60th Birthday 🎉</h1>
             <p>A Mykonos-Inspired Celebration</p>
             <div class="subtitle">Saturday, January 31st, 2026</div>
@@ -320,8 +380,10 @@
                 </div>
 
                 <div class="special-note">
-                    ✨ <strong>14 Guests</strong> • Traditional Plate Breaking Ceremony • $75 per person set menu
+                    ✨ <strong>16 Guests</strong> • $75 per person set menu
                 </div>
+
+                <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=OXF1azdoMjlmZGpkYjltb2JrbXF1MnN1djAga2h2cmxlZzFvYnNua2Fib25wcDkwMXM3YzBAZw&tmsrc=khvrleg1obsnkabonpp901s7c0%40group.calendar.google.com" class="calendar-button" target="_blank">📅 Add to Calendar</a>
             </div>
 
             <!-- Menu Section -->
@@ -361,13 +423,12 @@
                         <div class="course-items">
                             Sides: Ryzi (Rice) • Patates (Potatoes) • Greek Salad
                             <br><br>
-                            <strong>Your choice of all three proteins:</strong>
+                            <strong>All three proteins included:</strong>
                             <ul>
                                 <li>🍗 Chicken Breast Souvlaki</li>
                                 <li>🦐 Tiger Prawn Souvlaki</li>
                                 <li>🐑 Paidakia (Lamb Chops)</li>
                             </ul>
-                            <em style="color: #666; font-size: 0.9em;">*Vegetable + Halloumi souvlaki substitution available</em>
                         </div>
                     </div>
 
@@ -380,7 +441,7 @@
                 </div>
 
                 <div class="special-note">
-                    🎭 <strong>Plate Breaking Ceremony:</strong> Subject to availability. Plates currently en route from Greece and should arrive before January 31st. Contact Loula's to confirm!
+                    🎭 <strong>Plate Breaking Ceremony:</strong> Upon availability. Please note it cannot be guaranteed.
                 </div>
             </div>
         </div>
@@ -395,5 +456,9 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Calendar integration complete - guests can now add event to their calendars
+    </script>
 </body>
 </html>
