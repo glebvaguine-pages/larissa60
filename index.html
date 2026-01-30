@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larissa's 60th - Mykonos Birthday Celebration</title>
+    <title>Larissa's Birthday Dinner Planner</title>
     <style>
         * {
             margin: 0;
@@ -11,456 +11,1387 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --color-primary: #1a3a52;
+            --color-primary-dark: #0f2438;
+            --color-accent: #d4af37;
+            --color-accent-light: #e8c9a0;
+            --color-success: #9b7e6b;
+            --color-warning: #c8a5a0;
+            --color-bg: #faf8f5;
+            --color-card: #ffffff;
+            --color-text: #2a2a2a;
+            --color-text-light: #6b6b6b;
+            --color-border: #e8e3db;
+        }
+
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f8fbfd 0%, #e8f1f7 100%);
-            color: #1a3a52;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            color: #1a3a52;
-            margin-bottom: 50px;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            border-radius: 12px;
-            border: 2px solid #e0ecf7;
-        }
-
-        .header h1 {
-            font-size: 3.2em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #1a3a52;
-        }
-
-        .header p {
-            font-size: 1.3em;
-            opacity: 1;
-            font-style: italic;
-            color: #4a6fa5;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #2a5aa0;
-            font-size: 1.15em;
-            margin-top: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-            margin-bottom: 50px;
-        }
-
-        .section {
-            background: white;
-            border: 1px solid #d4e5f3;
-            border-radius: 12px;
-            padding: 45px;
-            box-shadow: 0 8px 32px rgba(26, 58, 82, 0.1);
-            animation: fadeInUp 1s ease;
-        }
-
-        .section h2 {
-            color: #1a3a52;
-            font-size: 1.7em;
-            margin-bottom: 35px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            border-bottom: 3px solid #2a5aa0;
-            padding-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-        }
-
-        .itinerary {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .event-card {
-            background: linear-gradient(135deg, #f5f9fd 0%, #eef5fb 100%);
-            border-radius: 8px;
-            padding: 22px;
-            border: 1px solid #d4e5f3;
-            border-left: 5px solid #2a5aa0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .event-card:hover {
-            transform: translateX(6px);
-            box-shadow: 0 8px 24px rgba(42, 90, 160, 0.2);
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
-            border-left: 5px solid #4a8fd4;
-        }
-
-        .event-time {
-            font-size: 1.6em;
-            font-weight: 800;
-            color: #2a5aa0;
-            font-family: 'Segoe UI', sans-serif;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .event-title {
-            font-size: 1.15em;
-            color: #1a3a52;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .event-location {
-            font-size: 0.95em;
-            color: #4a6fa5;
-        }
-
-        .menu-section {
-            margin-bottom: 25px;
-        }
-
-        .menu-course {
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
-            border-left: 4px solid #4a8fd4;
-            padding: 20px;
-            margin-bottom: 18px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid #d4e5f3;
-        }
-
-        .menu-course:hover {
-            background: linear-gradient(135deg, #e8f0f8 0%, #dfe8f5 100%);
-            box-shadow: 0 6px 20px rgba(42, 90, 160, 0.15);
-            border-left: 4px solid #2a5aa0;
-        }
-
-        .course-title {
-            font-size: 1.15em;
-            font-weight: 700;
-            color: #1a3a52;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .course-items {
-            font-size: 0.95em;
-            color: #1a3a52;
-            line-height: 1.9;
-        }
-
-        .course-items ul {
-            margin-left: 24px;
-            margin-top: 10px;
-        }
-
-        .course-items li {
-            margin-bottom: 8px;
-            color: #4a6fa5;
-        }
-
-        .price-highlight {
-            background: linear-gradient(135deg, #1a3a52 0%, #2a5aa0 100%);
-            color: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            font-size: 1.4em;
-            margin-bottom: 30px;
-            letter-spacing: 1.5px;
-            box-shadow: 0 6px 20px rgba(26, 58, 82, 0.2);
-        }
-
-        .special-note {
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fa 100%);
-            border-left: 4px solid #2a5aa0;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            color: #1a3a52;
-            margin-top: 20px;
-            font-weight: 500;
-            border: 1px solid #d4e5f3;
-        }
-
-        .footer {
-            text-align: center;
-            color: #1a3a52;
-            font-size: 1.1em;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            padding: 50px 30px;
-            border-top: 2px solid #d4e5f3;
-            border-radius: 12px;
-            margin-top: 60px;
-            box-shadow: 0 4px 15px rgba(26, 58, 82, 0.08);
-        }
-
-        .footer strong {
-            color: #2a5aa0;
-            font-weight: 700;
-        }
-
-        .greek-accent {
-            display: inline-block;
-            margin: 0 8px;
-            font-size: 1.5em;
-            animation: bounce 2s infinite;
-        }
-
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.95em;
-            opacity: 0.9;
+            font-family: 'Georgia', 'Garamond', serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        header {
+            background: var(--color-primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        header p {
+            font-size: 1em;
+            opacity: 0.85;
+            font-weight: 300;
+            letter-spacing: 0.8px;
         }
 
-        @media (max-width: 1024px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-            .header h1 {
-                font-size: 2.5em;
-            }
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 16px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--color-text-light);
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .tab-btn.active {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
+        }
+
+        .tab-btn:hover {
+            color: var(--color-accent);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: 0px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            border-left: 2px solid var(--color-primary);
+        }
+
+        .card.appetizer {
+            border-left-color: var(--color-accent);
+        }
+
+        .card.side {
+            border-left-color: #9b7e6b;
+        }
+
+        .card.main {
+            border-left-color: var(--color-success);
+        }
+
+        .card h3 {
+            margin-bottom: 16px;
+            color: var(--color-primary);
+            font-size: 1.25em;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .checklist {
+            display: grid;
+            gap: 15px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: #e8f4f6;
+        }
+
+        .checklist-item.checked {
+            opacity: 0.6;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--color-success);
+        }
+
+        .checklist-text {
+            flex: 1;
+        }
+
+        .checklist-text strong {
+            display: block;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .checklist-text span {
+            display: block;
+            color: var(--color-text-light);
+            font-size: 0.95em;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        .timeline-item.appetizer:before {
+            background: var(--color-accent);
+            box-shadow: 0 0 0 2px var(--color-accent);
+        }
+
+        .timeline-item.side:before {
+            background: #9b7e6b;
+            box-shadow: 0 0 0 2px #9b7e6b;
+        }
+
+        .timeline-item.main:before {
+            background: var(--color-success);
+            box-shadow: 0 0 0 2px var(--color-success);
+        }
+
+        .timeline-content {
+            background: var(--color-card);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-time {
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .timeline-title {
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .timeline-duration {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--color-text-light);
+            margin-bottom: 10px;
+        }
+
+        .timeline-details {
+            color: var(--color-text-light);
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .tips-box {
+            background: #f5f1e8;
+            border-left: 2px solid var(--color-accent);
+            padding: 20px;
+            border-radius: 0px;
+            margin-top: 20px;
+        }
+
+        .tips-box h4 {
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 1.1em;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+            color: var(--color-text);
+        }
+
+        .tips-box li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .progress-bar {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .progress-section {
+            flex: 1;
+            height: 8px;
+            background: var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-section.appetizer .progress-fill {
+            background: var(--color-accent);
+        }
+
+        .progress-section.side .progress-fill {
+            background: #3498db;
+        }
+
+        .progress-section.main .progress-fill {
+            background: var(--color-success);
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: var(--color-card);
+            padding: 20px;
+            border-radius: 0px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            border-top: 2px solid var(--color-border);
+        }
+
+        .summary-card h4 {
+            color: var(--color-text-light);
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+
+        .summary-card .value {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: var(--color-primary);
+            font-family: 'Playfair Display', 'Georgia', serif;
+        }
+
+        .summary-card.appetizer .value {
+            color: var(--color-accent);
+        }
+
+        .summary-card.side .value {
+            color: #9b7e6b;
+        }
+
+        .summary-card.main .value {
+            color: var(--color-success);
+        }
+
+        button.reset-btn {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+            font-size: 0.95em;
+        }
+
+        button.reset-btn:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 20px;
+            color: var(--color-text-light);
+            font-size: 0.95em;
+            border-top: 1px solid var(--color-border);
+            margin-top: 40px;
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 25px;
-            }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .section h2 {
+            header h1 {
                 font-size: 1.5em;
             }
-        }
 
-        .icon {
-            font-size: 1.4em;
-        }
+            .tabs {
+                gap: 5px;
+            }
 
-        .cat-logo {
-            width: 320px;
-            height: auto;
-            margin: 0 auto 30px;
-            display: block;
-            opacity: 1;
-            transition: transform 0.3s ease;
-        }
+            .tab-btn {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
 
-        .cat-logo:hover {
-            transform: scale(1.08);
-        }
-
-        .calendar-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #2a5aa0 0%, #1a3a52 100%);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            margin-top: 25px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            box-shadow: 0 6px 20px rgba(26, 58, 82, 0.15);
-        }
-
-        .calendar-button:hover {
-            background: linear-gradient(135deg, #4a8fd4 0%, #2a5aa0 100%);
-            box-shadow: 0 10px 30px rgba(26, 58, 82, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .calendar-button:active {
-            transform: translateY(0);
+            .summary {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Larissa's Birthday Dinner</h1>
+        <p>An Evening of French Elegance • Duck à l'Orange • Pommes Purée • Honey Glazed Carrots</p>
+    </header>
+
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="https://loulastaverna.com/wp-content/uploads/2023/08/Loulas_Animation_Cat.gif" alt="Loula's Taverna Cat & Gramophone" class="cat-logo">
-            <h1>🎉 Larissa's 60th Birthday 🎉</h1>
-            <p>A Mykonos-Inspired Celebration</p>
-            <div class="subtitle">Saturday, January 31st, 2026</div>
-            <div class="greek-accent">🇬🇷 ⛵ 🌊</div>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="menu">🍽️ Tonight's Menu</button>
+            <button class="tab-btn" data-tab="drinks">🥂 Cocktails & Wine</button>
+            <button class="tab-btn" data-tab="timeline">⏰ Cooking Timeline</button>
+            <button class="tab-btn" data-tab="checklist">✅ Ingredients Checklist</button>
+            <button class="tab-btn" data-tab="shopping">🛒 Shopping List</button>
+            <button class="tab-btn" data-tab="instructions">📖 Step-by-Step Instructions</button>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Itinerary Section -->
-            <div class="section">
-                <h2><span class="icon">⏰</span>Evening Itinerary</h2>
-                <div class="itinerary">
-                    <div class="event-card">
-                        <div class="event-time">5:30 PM</div>
-                        <div class="event-title">🍷 Happy Hour</div>
-                        <div class="event-location">Vaguine's</div>
-                    </div>
+        <!-- TONIGHT'S MENU TAB -->
+        <div id="menu" class="tab-content active">
+            <div class="card" style="border-left: none; text-align: center; padding: 40px 20px; margin-bottom: 30px;">
+                <h3 style="font-size: 1.8em; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--color-primary);">
+                    Larissa's Birthday Dinner
+                </h3>
+                <p style="font-size: 1em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light);">
+                    Tonight's Menu
+                </p>
+            </div>
 
-                    <div class="event-card">
-                        <div class="event-time">6:45 PM</div>
-                        <div class="event-title">🚗 Limousine Pickup</div>
-                        <div class="event-location">10220 Ainsworth Crescent</div>
-                    </div>
+            <div class="card" style="max-width: 700px; margin: 0 auto 20px auto; border-left: none; padding: 40px 45px; text-align: center;">
+                <div style="font-size: 0.9em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 28px; font-weight: 500;">
+                    Main Course
+                </div>
 
-                    <div class="event-card">
-                        <div class="event-time">7:30 PM</div>
-                        <div class="event-title">🍽️ Dinner Begins</div>
-                        <div class="event-location">Loula's Taverna</div>
+                <div style="margin-bottom: 32px;">
+                    <div style="font-size: 1.2em; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; color: var(--color-primary); font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700;">
+                        Duck à l'Orange
                     </div>
-
-                    <div class="event-card">
-                        <div class="event-time">10:30 PM</div>
-                        <div class="event-title">🌙 Limousine Departure</div>
-                        <div class="event-location">Loula's Taverna</div>
+                    <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.6;">
+                        Crispy-skinned duck breast, classic orange bigarade sauce, fresh citrus and thyme
                     </div>
                 </div>
 
-                <div class="special-note">
-                    ✨ <strong>16 Guests</strong> • $75 per person set menu
+                <div style="margin-bottom: 32px;">
+                    <div style="font-size: 1.2em; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; color: var(--color-primary); font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700;">
+                        Pommes Purée
+                    </div>
+                    <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.6;">
+                        Silky French-style mashed potatoes with butter and cream
+                    </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 30px;">
-                    <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=OXF1azdoMjlmZGpkYjltb2JrbXF1MnN1djAga2h2cmxlZzFvYnNua2Fib25wcDkwMXM3YzBAZw&amp;tmsrc=khvrleg1obsnkabonpp901s7c0%40group.calendar.google.com"><img border="0" src="https://calendar.google.com/calendar/images/ext/gc_button1_en.gif" alt="Google Calendar" style="width: 180px; height: auto;"></a>
+                <div style="margin-bottom: 32px;">
+                    <div style="font-size: 1.2em; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; color: var(--color-primary); font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700;">
+                        Honey Glazed Carrots
+                    </div>
+                    <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.6;">
+                        Baby carrots glazed with honey, lemon and fresh thyme
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 28px 0; margin: 28px 0;">
+                    <div style="font-size: 0.9em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 24px; font-weight: 500;">
+                        Appetizers • 4:30 PM
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 1.05em; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; color: var(--color-primary); font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700;">
+                            Baked Brie en Croûte
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6;">
+                            Warm brie wrapped in puff pastry with honey, cranberries and pecans
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 1.05em; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; color: var(--color-primary); font-family: 'Playfair Display', 'Georgia', serif; font-weight: 700;">
+                            Charcuterie & Fromage
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6;">
+                            Selection of cured meats, cheeses, seasonal fruit, nuts and accompaniments
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; font-size: 0.85em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light);">
+                    Main Course • 5:30 PM
+                </div>
+            </div>
+        </div>
+
+        <!-- COCKTAILS & WINE TAB -->
+        <div id="drinks" class="tab-content">
+            <div class="card" style="border-left: none; text-align: center; padding: 40px 20px; margin-bottom: 30px;">
+                <h3 style="font-size: 1.6em; letter-spacing: -0.3px; margin-bottom: 8px; color: var(--color-primary);">
+                    Cocktails & Wine
+                </h3>
+                <p style="font-size: 0.95em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light);">
+                    Pairings for Tonight's Celebration
+                </p>
+            </div>
+
+            <div class="card" style="max-width: 700px; margin: 0 auto 20px auto; border-left: none; padding: 35px 40px;">
+                <div style="margin-bottom: 32px;">
+                    <div style="font-size: 0.95em; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px; font-weight: 500;">
+                        Red Wine Options
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <div style="font-size: 1.1em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 6px;">
+                            Zenato Ripassa Valpolicella Superiore 2018
+                        </div>
+                        <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.7;">
+                            Veneto, Italy<br>
+                            <em>Rich Valpolicella with concentrated cherry, plum, and spice from the ripasso method — exceptional with duck à l'orange</em>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.1em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 6px;">
+                            Produttori del Barbaresco 2020
+                        </div>
+                        <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.7;">
+                            Piedmont, Italy<br>
+                            <em>Classic Nebbiolo with elegant cherry, rose, and truffle notes — sophisticated pairing for duck with its refined tannins</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--color-border);">
+                    <div style="font-size: 0.95em; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px; font-weight: 500;">
+                        Champagne
+                    </div>
+                    <div style="font-size: 1.1em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 6px;">
+                        Moët & Chandon Rosé Impérial
+                    </div>
+                    <div style="font-size: 0.95em; color: var(--color-text-light); line-height: 1.7;">
+                        Champagne, France<br>
+                        <em>Elegant rosé with wild strawberry, raspberry, and floral notes — perfect for toasting the birthday girl and pairing with charcuterie</em>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="font-size: 0.95em; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; font-weight: 500;">
+                        Signature Cocktails
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 1.05em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 4px;">
+                            🍸 Vodka Martini
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6; margin-left: 24px;">
+                            Vodka, dry vermouth, olive or lemon twist<br>
+                            <em>Crisp, clean, timeless — shaken or stirred to perfection</em>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 1.05em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 4px;">
+                            ☕ Espresso Martini
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6; margin-left: 24px;">
+                            Vodka, espresso, coffee liqueur, simple syrup<br>
+                            <em>Rich, energizing, indulgent — the perfect after-dinner pick-me-up</em>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="font-size: 1.05em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 4px;">
+                            🍊 Orange Margarita
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6; margin-left: 24px;">
+                            Tequila, orange liqueur, fresh lime juice, orange twist<br>
+                            <em>Bright, citrusy, refreshing — a festive celebration in a glass</em>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 1.05em; color: var(--color-text); line-height: 1.7; font-weight: 600; margin-bottom: 4px;">
+                            🥃 Old Fashioned
+                        </div>
+                        <div style="font-size: 0.9em; color: var(--color-text-light); line-height: 1.6; margin-left: 24px;">
+                            Bourbon or rye, sugar, Angostura bitters, orange peel<br>
+                            <em>Classic, bold, sophisticated — a whiskey lover's dream</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COOKING TIMELINE TAB -->
+        <div id="timeline" class="tab-content">
+            <div class="summary">
+                <div class="summary-card appetizer">
+                    <h4>Appetizers Ready</h4>
+                    <div class="value">4:30 PM</div>
+                </div>
+                <div class="summary-card main">
+                    <h4>Main Course</h4>
+                    <div class="value">5:30 PM</div>
+                </div>
+                <div class="summary-card">
+                    <h4>Total Guests</h4>
+                    <div class="value">4–5</div>
                 </div>
             </div>
 
-            <!-- Menu Section -->
-            <div class="section">
-                <h2><span class="icon">🍽️</span>Loula's Taverna Menu</h2>
+            <div class="card">
+                <h3>⏰ Cooking Timeline</h3>
+                <p style="margin-bottom: 15px; color: var(--color-text-light);">Detailed schedule from 3:30 PM appetizers to 5:30 PM dinner service</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item appetizer">
+                    <div class="timeline-content">
+                        <div class="timeline-time">3:30 PM - 3:50 PM</div>
+                        <div class="timeline-title">Charcuterie Board Setup</div>
+                        <div class="timeline-duration">20 minutes</div>
+                        <div class="timeline-details">
+                            Arrange cheeses, cured meats, nuts, fruits, crackers, olives, and pickles on your serving board. Place jams, honey, and mustard in small bowls. Everything should be at room temperature or chilled depending on preference.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item appetizer">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:00 PM - 4:25 PM</div>
+                        <div class="timeline-title">Baked Brie en Croûte</div>
+                        <div class="timeline-duration">10 min prep + 15-20 min bake + 5 min rest</div>
+                        <div class="timeline-details">
+                            <strong>Prep:</strong> Preheat oven to 425°F. Thaw puff pastry (keep very cold). Lay pastry flat, drizzle honey in center, top with dried cranberries and candied pecans. Place brie wheel on top. Gather pastry edges around brie, seal at top. Flip seam-side down. Brush entire pastry with egg wash.<br><br>
+                            <strong>Bake:</strong> Bake 15-20 minutes until pastry is golden brown. Do NOT overbake or brie will re-harden inside.<br><br>
+                            <strong>Rest:</strong> Cool 5 minutes before serving. Transfer to board alongside charcuterie.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item appetizer">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:30 PM</div>
+                        <div class="timeline-title">✨ APPETIZERS READY TO SERVE</div>
+                        <div class="timeline-duration">Charcuterie board + warm baked brie</div>
+                        <div class="timeline-details">
+                            Serve with crackers, bread, apple slices, and additional utensils. Keep brie warm on the board. Open the Moët Rosé for toasting!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item side">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:30 PM - 4:50 PM</div>
+                        <div class="timeline-title">Pommes Purée - Boil & Pass</div>
+                        <div class="timeline-duration">20 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Boil:</strong> Place small waxy potatoes (whole, unpeeled) in a large pot of cold salted water. Bring to boil, then simmer 15-18 minutes until fork-tender.<br><br>
+                            <strong>Pass:</strong> Drain potatoes. While still hot, peel and immediately pass through a fine-mesh sieve into a warm bowl. This creates a silky texture. Do not use a food processor or mash—it will become gluey.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item side">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:50 PM - 5:00 PM</div>
+                        <div class="timeline-title">Pommes Purée - Finish with Butter & Cream</div>
+                        <div class="timeline-duration">10 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Butter:</strong> Over low heat, vigorously whisk cold cubed butter into the hot potatoes bit by bit. The cold butter will emulsify into a creamy sauce rather than making it greasy. Use approximately 1 lb butter per 2 lbs potatoes (~1.5 lbs butter for 2.5–3 lbs potatoes).<br><br>
+                            <strong>Cream:</strong> Slowly drizzle in hot whole milk or heavy cream (about 1.25–1.5 cups), whisking constantly, until you reach a loose consistency that barely holds its shape on a spoon. Season generously with salt.<br><br>
+                            <strong>Keep warm:</strong> Cover and hold over very low heat until service.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:30 PM - 4:50 PM</div>
+                        <div class="timeline-title">Bigarade Sauce - Gastrique Base</div>
+                        <div class="timeline-duration">20 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Gastrique:</strong> In a small saucepan, combine 3 tbsp sugar and 1/4 cup red wine vinegar. Boil over medium-high heat WITHOUT stirring until dark mahogany colored (about 3-4 minutes).<br><br>
+                            <strong>Add Stock:</strong> Carefully whisk in 2–2.5 cups brown duck or veal stock. The caramel may seize but will dissolve as you whisk. Simmer for 10 minutes.<br><br>
+                            <strong>Citrus:</strong> Add 1.25 cups fresh orange juice, 1/3 cup fresh lemon juice, and 1-2 tbsp Grand Marnier. Simmer until reduced by 1/3 (about 5 more minutes). Set aside and keep warm.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item side">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:45 PM - 5:00 PM</div>
+                        <div class="timeline-title">Honey Glazed Carrots</div>
+                        <div class="timeline-duration">15 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Sauté:</strong> In a skillet, combine peeled and angled-sliced carrots with 1/2–3/4 cup chicken broth and 2-3 tbsp honey. Cover and simmer for 5-7 minutes until tender-crisp.<br><br>
+                            <strong>Glaze:</strong> Remove lid, increase heat to reduce the liquid into a thick syrup. Add 2 tbsp cold butter and stir gently until carrots are glossy and light golden.<br><br>
+                            <strong>Finish:</strong> Remove from heat. Finish with squeeze of fresh lemon juice and sprinkle of fresh minced thyme. Taste and adjust sweetness/acidity as needed. Keep warm until service.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:45 PM - 4:57 PM</div>
+                        <div class="timeline-title">Duck à l'Orange - Sear (Cold Pan)</div>
+                        <div class="timeline-duration">12 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Prep:</strong> Pat duck breasts completely dry. Carefully score the skin in a crisscross pattern, cutting about 1/3-3/4 of the way through the fat layer but NOT into the meat. Season both sides generously with salt and pepper. Let come to room temperature.<br><br>
+                            <strong>Sear:</strong> Place duck breasts SKIN-SIDE DOWN in a COLD skillet with no oil or butter. This is crucial! Turn heat to medium-low. Render the fat slowly for 10-12 minutes. Pour off excess fat occasionally (save it for another use—it's liquid gold!). The skin should become deep golden brown and crispy.<br><br>
+                            <strong>Key:</strong> Slow rendering = maximum crispiness. Do not rush this step.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">4:57 PM - 4:59 PM</div>
+                        <div class="timeline-title">Duck à l'Orange - Flip & Brief Sear</div>
+                        <div class="timeline-duration">2 minutes</div>
+                        <div class="timeline-details">
+                            <strong>Flip:</strong> Flip the duck breasts meat-side up.<br><br>
+                            <strong>Quick sear:</strong> Raise heat to medium-high and sear the meat side for 1-2 minutes just to brown it.<br><br>
+                            <strong>Transfer:</strong> Move duck breasts to an oven-safe dish or baking pan, skin-side up. Insert meat thermometer into the thickest part of one breast.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">5:00 PM - 5:08 PM</div>
+                        <div class="timeline-title">Duck à l'Orange - Oven Finish</div>
+                        <div class="timeline-duration">5-8 minutes (temperature dependent)</div>
+                        <div class="timeline-details">
+                            <strong>Oven:</strong> Preheat oven to 375°F. Place duck in oven (skin-side up).<br><br>
+                            <strong>Temperature Goal:</strong> For perfect medium-rare ("rosé"), target internal temperature of 135°F-140°F (57°C-60°C). Watch the thermometer closely. Cook 5-10 minutes depending on thickness of breasts and how much initial searing was done.<br><br>
+                            <strong>Timing:</strong> This is variable! Start checking at 5 minutes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">5:08 PM - 5:13 PM</div>
+                        <div class="timeline-title">Duck à l'Orange - Rest (CRITICAL!)</div>
+                        <div class="timeline-duration">5 minutes minimum</div>
+                        <div class="timeline-details">
+                            <strong>Resting:</strong> Remove duck from oven and place on a warm cutting board. Tent loosely with foil. Let rest AT LEAST 5-10 minutes. This allows carryover cooking to finish and the juices to redistribute throughout the meat. Cutting into resting meat will cause all juices to run out—you don't want that!<br><br>
+                            <strong>Temperature check:</strong> The internal temperature may rise another 2-3 degrees during resting (carryover cooking).<br><br>
+                            <strong>Use this time to:</strong> Reheat sauce gently, plate potatoes and carrots, arrange serving platter. Open the Zenato Ripassa!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item main">
+                    <div class="timeline-content">
+                        <div class="timeline-time">5:13 PM - 5:30 PM</div>
+                        <div class="timeline-title">🎯 FINAL PLATING & SERVICE</div>
+                        <div class="timeline-duration">15 minutes or less</div>
+                        <div class="timeline-details">
+                            <strong>Slice duck:</strong> Slice rested duck breasts on a slight bias, showing the beautiful pink interior. Arrange slices overlapping on the plate or serving platter.<br><br>
+                            <strong>Sauce:</strong> If sauce cooled, gently reheat and finish with 1-2 tbsp cold butter whisked in off heat for extra sheen and silkiness. Ladle sauce around or over the duck.<br><br>
+                            <strong>Garnish:</strong> Top with fresh orange segments and fresh thyme sprigs.<br><br>
+                            <strong>Plate:</strong> Serve alongside creamy pommes purée and glossy honey glazed carrots.<br><br>
+                            <strong>Serve immediately at 5:30 PM with the Zenato Ripassa!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>⏱️ Timeline Pro Tips</h4>
+                <ul>
+                    <li><strong>Cold pan for duck:</strong> This is THE most important technique. Starting cold allows fat to render gradually for maximum crispiness</li>
+                    <li><strong>Rest the duck:</strong> Non-negotiable! Resting ensures juicy, tender meat. Don't skip this</li>
+                    <li><strong>Overlap tasks:</strong> While duck rests, finish plating sides. While potatoes boil, prep the sauce base</li>
+                    <li><strong>Temperature control:</strong> Use a meat thermometer. 135-140°F is perfect for medium-rare ("rosé"). Slightly undercook rather than overcook—carryover will finish it</li>
+                    <li><strong>Make ahead:</strong> Charcuterie board can be assembled up to 2 hours early, covered loosely. All prep (scoring, sauce base) can be done 1-2 hours ahead</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- INGREDIENTS CHECKLIST TAB -->
+        <div id="checklist" class="tab-content">
+            <div class="card">
+                <h3>✅ Ingredients Checklist</h3>
+                <p style="margin-bottom: 15px; color: var(--color-text-light);">Check off ingredients as you prepare them. Progress tracks completion!</p>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-section appetizer">
+                    <div class="progress-fill" id="appetizer-progress"></div>
+                </div>
+                <div class="progress-section side">
+                    <div class="progress-fill" id="side-progress"></div>
+                </div>
+                <div class="progress-section main">
+                    <div class="progress-fill" id="main-progress"></div>
+                </div>
+            </div>
+
+            <div class="card appetizer">
+                <h3>🥐 Appetizer Prep (3:30 PM - 4:30 PM)</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="appetizer-check">
+                        <div class="checklist-text">
+                            <strong>Baked Brie Components</strong>
+                            <span>✓ Puff pastry (thawed, cold) ✓ Brie wheel ✓ Honey ✓ Dried cranberries ✓ Candied pecans ✓ Egg for wash</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="appetizer-check">
+                        <div class="checklist-text">
+                            <strong>Charcuterie Board Setup</strong>
+                            <span>✓ Prosciutto ✓ Soppressata ✓ Coppa ✓ 3-4 cheeses ✓ Crackers & baguette ✓ Fruit ✓ Nuts ✓ Jam ✓ Olives ✓ Cornichons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card side">
+                <h3>🥕 Side Dishes Prep (4:30 PM - 5:00 PM)</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="side-check">
+                        <div class="checklist-text">
+                            <strong>Pommes Purée Ingredients</strong>
+                            <span>✓ 2.5-3 lbs small waxy potatoes (Yukon Gold/Ratte) ✓ 1.5 lbs unsalted butter (cold, cubed) ✓ 1.25-1.5 cups heavy cream or whole milk (heated) ✓ Salt</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="side-check">
+                        <div class="checklist-text">
+                            <strong>Honey Glazed Carrots Ingredients</strong>
+                            <span>✓ 2 lbs carrots (peeled, angle-sliced) ✓ 2-3 tbsp honey ✓ 1/2-3/4 cup chicken broth ✓ 2 tbsp butter ✓ Fresh lemon juice ✓ Fresh thyme</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card main">
+                <h3>🦆 Duck à l'Orange Prep (4:30 PM - 5:30 PM)</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="main-check">
+                        <div class="checklist-text">
+                            <strong>Duck Breasts Prep</strong>
+                            <span>✓ 3 large boneless duck breasts (6-8 oz each) ✓ Skin scored in crisscross pattern ✓ Patted completely dry ✓ Seasoned with salt & pepper ✓ Room temperature</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="main-check">
+                        <div class="checklist-text">
+                            <strong>Bigarade Sauce - Gastrique Base</strong>
+                            <span>✓ 3 tbsp sugar ✓ 1/4 cup red wine vinegar ✓ 2.5 cups duck or veal stock</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="main-check">
+                        <div class="checklist-text">
+                            <strong>Bigarade Sauce - Citrus Finish</strong>
+                            <span>✓ 1.25 cups fresh orange juice (4-5 oranges) ✓ 1/3 cup fresh lemon juice ✓ 1-2 tbsp Grand Marnier or Cointreau ✓ 2-3 tbsp cold butter (for finishing) ✓ Fresh orange segments & thyme (garnish)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-btn" onclick="resetChecklist()">Reset All Checkboxes</button>
+
+            <div class="tips-box">
+                <h4>📋 Prep Tips</h4>
+                <ul>
+                    <li><strong>Mise en place:</strong> Prep all ingredients before you start cooking. Measure everything out!</li>
+                    <li><strong>Duck scoring:</strong> Score deep enough (1/3-3/4 through fat layer) for maximum crisping, but DON'T cut into the meat</li>
+                    <li><strong>Cold butter cubes:</strong> Cut butter into small cubes and keep refrigerated until needed for pommes purée</li>
+                    <li><strong>Room temp ingredients:</strong> Bring duck to room temp 20-30 min before cooking, but keep butter COLD</li>
+                    <li><strong>Fresh juice:</strong> Always use freshly squeezed orange and lemon juice—it makes ALL the difference</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SHOPPING LIST TAB -->
+        <div id="shopping" class="tab-content">
+            <div class="card">
+                <h3>🛒 Complete Shopping List</h3>
+                <p style="margin-bottom: 15px; color: var(--color-text-light);">Print or check off as you shop. All items for 4–5 servings.</p>
+            </div>
+
+            <div class="card">
+                <h3>Proteins</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Duck Breasts (boneless, skin-on)</strong>
+                            <span>3 large (6-8 oz each) | High quality, serve room temp</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Prosciutto</strong>
+                            <span>6 oz | For charcuterie board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Soppressata or Salami</strong>
+                            <span>8 oz | For charcuterie board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Coppa or Calabrese</strong>
+                            <span>6 oz | For charcuterie board</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Produce</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Fresh Oranges</strong>
+                            <span>4–5 large | For juice (1.25 cups needed) and garnish</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Lemons</strong>
+                            <span>3 | For lemon juice in sauce</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Carrots</strong>
+                            <span>2 lbs | 12–14 medium, for honey glazed side</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Potatoes (Yukon Gold or Ratte)</strong>
+                            <span>2.5–3 lbs | Small waxy potatoes for pommes purée</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Fresh Thyme</strong>
+                            <span>1 bunch | For carrots and garnish</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Apples/Pears</strong>
+                            <span>5–6 pieces | For charcuterie board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Fresh Berries or Grapes</strong>
+                            <span>1.5–2 cups | For charcuterie board</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Dairy & Cheese</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Brie Wheel</strong>
+                            <span>1 (8-10 oz round) | For baked brie en croûte</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Manchego Cheese</strong>
+                            <span>5–6 oz | Hard cheese for board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Aged Gouda or Cheddar</strong>
+                            <span>5–6 oz | Hard cheese for board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Triple Cream or Camembert</strong>
+                            <span>5–6 oz | Soft spreadable cheese for board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Unsalted Butter</strong>
+                            <span>1.75–2 lbs (7–8 sticks) | Cold, cubed for pommes & sauce</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Heavy Cream or Whole Milk</strong>
+                            <span>1.25–1.5 cups | For pommes purée</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Eggs</strong>
+                            <span>1 | For egg wash on brie</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Pantry & Dry Goods</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Puff Pastry Sheets</strong>
+                            <span>1 sheet | Thawed, keep cold (box has 2)</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Honey</strong>
+                            <span>1.25 cups (10 oz) | For brie, carrots, board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Granulated Sugar</strong>
+                            <span>For gastrique (3 tbsp needed)</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Red Wine Vinegar</strong>
+                            <span>For gastrique (1/4 cup needed)</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Salt & Black Pepper</strong>
+                            <span>Fine sea salt, freshly ground pepper | As needed</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Dried Cranberries</strong>
+                            <span>1/4 cup | For baked brie</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Candied Pecans or Walnuts</strong>
+                            <span>1/4 cup chopped | For baked brie</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Mixed Nuts</strong>
+                            <span>1.25 cups | Marcona almonds, pistachios for board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Artisan Crackers & Baguette</strong>
+                            <span>1 box crackers + 1 baguette | For board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Fig Jam or Berry Preserve</strong>
+                            <span>1 small jar | For charcuterie board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Olives (Pitted)</strong>
+                            <span>1 small jar | For charcuterie board</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Cornichons or Small Pickles</strong>
+                            <span>1 small jar | For charcuterie board</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Specialty & Spirits</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Grand Marnier or Cointreau</strong>
+                            <span>1 bottle (any size) | For sauce (1-2 tbsp needed)</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Duck or Veal Stock</strong>
+                            <span>2.5–3 cups | Quality stock, homemade or store-bought</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" class="shop-item">
+                        <div class="checklist-text">
+                            <strong>Parchment Paper</strong>
+                            <span>1 roll | For baking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>🎯 Shopping Tips</h4>
+                <ul>
+                    <li><strong>Duck breasts:</strong> Buy from a specialty butcher or Asian market for the best quality</li>
+                    <li><strong>Cheese:</strong> Ask the cheese counter for room-temperature recommendations</li>
+                    <li><strong>Puff pastry:</strong> Keep it in the freezer until 30 min before use</li>
+                    <li><strong>Potatoes:</strong> Use small, waxy potatoes (Yukon Gold or Ratte) for the best pommes purée</li>
+                    <li><strong>Advance prep:</strong> Many items can be purchased 2-3 days ahead (cheeses, meats, pantry items)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP-BY-STEP INSTRUCTIONS TAB -->
+        <div id="instructions" class="tab-content">
+            <div class="card">
+                <h3>📖 Complete Step-by-Step Instructions</h3>
+                <p style="margin-bottom: 15px; color: var(--color-text-light);">Follow these detailed instructions for perfect execution of tonight's dinner.</p>
+            </div>
+
+            <div class="card appetizer">
+                <h3>🥐 Baked Brie en Croûte</h3>
+                <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 6px;">
+                    <strong>Timing:</strong> 4:00 PM - 4:30 PM | <strong>Serves:</strong> 4-5 | <strong>Temp:</strong> 425°F
+                </div>
                 
-                <div class="price-highlight">
-                    $75 per person (All Three Proteins)
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Ingredients:</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>1 sheet puff pastry (thawed, kept cold)</li>
+                    <li>1 wheel brie cheese (8-10 oz)</li>
+                    <li>3-4 tbsp honey</li>
+                    <li>1/4 cup dried cranberries</li>
+                    <li>1/4 cup candied pecans, chopped</li>
+                    <li>1 egg, beaten (for egg wash)</li>
+                </ul>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Instructions:</h4>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Preheat oven to 425°F.</strong> Line a baking sheet with parchment paper.</li>
+                    <li><strong>Prep pastry:</strong> Unfold cold puff pastry on a lightly floured surface. Roll gently to smooth any creases.</li>
+                    <li><strong>Layer ingredients:</strong> In the center of the pastry, drizzle 2-3 tbsp honey. Sprinkle dried cranberries and chopped candied pecans over the honey.</li>
+                    <li><strong>Add brie:</strong> Place the brie wheel directly on top of the honey-nut mixture.</li>
+                    <li><strong>Wrap:</strong> Gather the four corners of the pastry and bring them up over the brie, pleating and pressing to seal at the top. Trim any excess pastry.</li>
+                    <li><strong>Flip:</strong> Carefully flip the wrapped brie so the seam side is down on the baking sheet.</li>
+                    <li><strong>Egg wash:</strong> Brush the entire pastry surface generously with beaten egg for a golden finish.</li>
+                    <li><strong>Bake:</strong> Bake for 15-20 minutes until the pastry is deep golden brown and puffed. Watch carefully—don't overbake or the brie will harden inside.</li>
+                    <li><strong>Rest:</strong> Let cool for 5 minutes before transferring to the charcuterie board.</li>
+                    <li><strong>Serve:</strong> Drizzle with additional honey and serve warm with crackers and bread.</li>
+                </ol>
+            </div>
+
+            <div class="card main">
+                <h3>🦆 Duck à l'Orange with Bigarade Sauce</h3>
+                <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 6px;">
+                    <strong>Timing:</strong> 4:30 PM - 5:30 PM | <strong>Serves:</strong> 4-5 | <strong>Target temp:</strong> 135-140°F internal
                 </div>
 
-                <div class="menu-section">
-                    <div class="menu-course">
-                        <div class="course-title">🥒 Course 1: Dip Flights with Pita</div>
-                        <div class="course-items">
-                            <ul>
-                                <li>Tzatziki</li>
-                                <li>Smoked Eggplant</li>
-                                <li>Tarama</li>
-                                <li>Hummus</li>
-                                <li>Spicy Feta</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Duck Ingredients:</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>3 large boneless duck breasts (6-8 oz each), skin-on</li>
+                    <li>Salt and freshly ground black pepper</li>
+                </ul>
 
-                    <div class="menu-course">
-                        <div class="course-title">🦑 Course 2: Appetizers</div>
-                        <div class="course-items">
-                            <ul>
-                                <li>Spanakopita</li>
-                                <li>Kalamari</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Bigarade Sauce Ingredients:</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>3 tbsp granulated sugar</li>
+                    <li>1/4 cup red wine vinegar</li>
+                    <li>2-2.5 cups duck or veal stock</li>
+                    <li>1.25 cups fresh orange juice (4-5 oranges)</li>
+                    <li>1/3 cup fresh lemon juice (2-3 lemons)</li>
+                    <li>1-2 tbsp Grand Marnier or Cointreau</li>
+                    <li>2-3 tbsp cold unsalted butter (for finishing)</li>
+                    <li>Fresh orange segments and thyme sprigs (garnish)</li>
+                </ul>
 
-                    <div class="menu-course">
-                        <div class="course-title">🍗 Course 3: Main Course</div>
-                        <div class="course-items">
-                            Sides: Ryzi (Rice) • Patates (Potatoes) • Greek Salad
-                            <br><br>
-                            <strong>All three proteins included:</strong>
-                            <ul>
-                                <li>🍗 Chicken Breast Souvlaki</li>
-                                <li>🦐 Tiger Prawn Souvlaki</li>
-                                <li>🐑 Paidakia (Lamb Chops)</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Instructions:</h4>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Prep duck:</strong> Pat duck breasts completely dry. Score skin in a crisscross pattern, cutting 1/3-3/4 through fat layer but NOT into meat. Season both sides generously with salt and pepper. Let sit at room temperature for 20-30 minutes.</li>
+                    <li><strong>Make gastrique:</strong> In a small saucepan, combine sugar and red wine vinegar. Boil over medium-high heat WITHOUT stirring until dark mahogany colored (3-4 minutes). Watch carefully!</li>
+                    <li><strong>Add stock:</strong> Carefully whisk in duck or veal stock. The caramel may seize but will dissolve as you whisk. Simmer for 10 minutes.</li>
+                    <li><strong>Add citrus:</strong> Add fresh orange juice, lemon juice, and Grand Marnier. Simmer until reduced by 1/3 (about 5 more minutes). Set aside and keep warm.</li>
+                    <li><strong>Cold pan start:</strong> Place duck breasts SKIN-SIDE DOWN in a COLD skillet with no oil or butter. Turn heat to medium-low.</li>
+                    <li><strong>Render fat:</strong> Cook for 10-12 minutes, pouring off excess fat occasionally. The skin should become deep golden brown and crispy.</li>
+                    <li><strong>Flip and sear:</strong> Flip duck breasts. Increase heat to medium-high and sear meat side for 1-2 minutes.</li>
+                    <li><strong>Oven finish:</strong> Transfer to oven-safe dish, skin-side up. Insert thermometer. Roast at 375°F for 5-10 minutes until internal temp reaches 135-140°F.</li>
+                    <li><strong>REST (critical!):</strong> Remove from oven. Place on cutting board and tent with foil. Rest AT LEAST 5-10 minutes.</li>
+                    <li><strong>Finish sauce:</strong> Gently reheat sauce. Remove from heat and whisk in 2-3 tbsp cold butter for sheen.</li>
+                    <li><strong>Slice and serve:</strong> Slice duck on a bias. Arrange on plates. Ladle sauce around or over duck. Garnish with orange segments and thyme. Serve with pommes purée and carrots.</li>
+                </ol>
 
-                    <div class="menu-course">
-                        <div class="course-title">🍫 Course 4: Dessert</div>
-                        <div class="course-items">
-                            Espresso Chocolate Mousse
-                        </div>
-                    </div>
-                </div>
-
-                <div class="special-note">
-                    🎭 <strong>Plate Breaking Ceremony:</strong> Upon availability. Please note it cannot be guaranteed.
+                <div style="margin-top: 15px; padding: 12px; background: #fff3cd; border-left: 3px solid var(--color-accent); border-radius: 0;">
+                    <strong>🔑 Critical Techniques:</strong> (1) Cold pan start for crispy skin, (2) Slow fat rendering (10-12 min), (3) Temperature precision 135-140°F, (4) MUST rest 5-10 minutes!
                 </div>
             </div>
-        </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>🌺 <strong>An evening celebrating Greek tradition, family, and joy!</strong> 🌺</p>
-            <div class="contact-info">
-                <p>📞 Ultimate Limousine: (604) 788-8888</p>
-                <p>📞 Loula's Taverna: (604) 500-6494</p>
-                <p style="margin-top: 20px; font-style: italic;">Yamas to 60 years! 🥂</p>
+            <div class="card side">
+                <h3>🥔 Pommes Purée</h3>
+                <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 6px;">
+                    <strong>Timing:</strong> 4:30 PM - 5:00 PM | <strong>Serves:</strong> 4-5
+                </div>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Ingredients:</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>2.5-3 lbs small waxy potatoes (Yukon Gold or Ratte), whole and unpeeled</li>
+                    <li>1.5 lbs (6 sticks) unsalted butter, cold and cubed</li>
+                    <li>1.25-1.5 cups heavy cream or whole milk, heated</li>
+                    <li>Salt to taste</li>
+                </ul>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Instructions:</h4>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Boil potatoes:</strong> Place whole, unpeeled potatoes in a large pot. Cover with cold salted water. Bring to boil, then reduce to simmer. Cook 15-18 minutes until fork-tender.</li>
+                    <li><strong>Drain and peel:</strong> Drain thoroughly. While still very hot, carefully peel the potatoes.</li>
+                    <li><strong>Pass through sieve:</strong> Immediately pass hot potatoes through a fine-mesh sieve or food mill into a warm bowl. Never use a food processor or potato masher!</li>
+                    <li><strong>Add butter:</strong> Place bowl over very low heat. Add cold cubed butter bit by bit, whisking vigorously after each addition. The cold butter will emulsify into the hot potatoes.</li>
+                    <li><strong>Add cream:</strong> Slowly drizzle in hot milk or cream while whisking constantly. Consistency should be loose and barely hold its shape—like soft-serve ice cream.</li>
+                    <li><strong>Season:</strong> Add salt generously to taste. Pommes purée needs more salt than you think!</li>
+                    <li><strong>Keep warm:</strong> Cover and keep over very low heat until plating. Whisk before serving to restore silkiness.</li>
+                </ol>
+
+                <div style="margin-top: 15px; padding: 12px; background: #fff3cd; border-left: 3px solid var(--color-accent); border-radius: 0;">
+                    <strong>🔑 Key Technique:</strong> Pass through sieve (not mash), add COLD butter to HOT potatoes for emulsification, use generous butter—about 1 lb butter per 2 lbs potatoes!
+                </div>
+            </div>
+
+            <div class="card side">
+                <h3>🥕 Honey Glazed Carrots</h3>
+                <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 6px;">
+                    <strong>Timing:</strong> 4:45 PM - 5:00 PM | <strong>Serves:</strong> 4-5
+                </div>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Ingredients:</h4>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>2 lbs carrots, peeled and sliced on the bias</li>
+                    <li>1/2-3/4 cup chicken broth</li>
+                    <li>2-3 tbsp honey</li>
+                    <li>2 tbsp unsalted butter</li>
+                    <li>Fresh lemon juice (from 1/2 lemon)</li>
+                    <li>2 tsp fresh thyme, minced</li>
+                    <li>Salt and pepper to taste</li>
+                </ul>
+
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: var(--color-primary);">Instructions:</h4>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Combine:</strong> In a large skillet, combine sliced carrots, chicken broth, and honey.</li>
+                    <li><strong>Simmer covered:</strong> Bring to simmer over medium heat. Cover and cook 5-7 minutes until tender-crisp.</li>
+                    <li><strong>Reduce to glaze:</strong> Remove lid. Increase heat to medium-high. Let liquid reduce and thicken into a syrupy glaze, stirring occasionally (5-6 minutes).</li>
+                    <li><strong>Finish with butter:</strong> When glaze coats carrots and liquid is mostly evaporated, add cold butter. Stir gently until butter melts and carrots are glossy.</li>
+                    <li><strong>Season:</strong> Remove from heat. Add squeeze of fresh lemon juice and sprinkle with minced thyme. Taste and adjust—more honey if sweeter, more lemon if tangier. Season with salt and pepper.</li>
+                    <li><strong>Keep warm:</strong> Keep warm over very low heat or covered until plating.</li>
+                </ol>
+            </div>
+
+            <div class="tips-box">
+                <h4>👨‍🍳 Chef's Final Tips</h4>
+                <ul>
+                    <li><strong>Timing is everything:</strong> Follow the timeline closely. Start the sauce while the duck skin renders so everything finishes together</li>
+                    <li><strong>Taste as you go:</strong> The sauce should balance sweet, tart, and savory. Adjust with more honey, lemon, or salt as needed</li>
+                    <li><strong>Keep things warm:</strong> Use warming drawers or very low heat to keep sides warm while resting the duck</li>
+                    <li><strong>Plate hot:</strong> Warm your plates in a low oven (200°F) for 10 minutes before plating</li>
+                    <li><strong>Save the duck fat:</strong> The rendered duck fat is liquid gold—strain and save it for roasting potatoes or vegetables</li>
+                    <li><strong>Wine pairing:</strong> Serve the Zenato Ripassa with the main course—its rich fruit complements the duck perfectly</li>
+                </ul>
             </div>
         </div>
     </div>
 
+    <div class="footer-note">
+        <p>🎂 Happy Birthday, Larissa! Wishing you a wonderful evening filled with delicious food and great company.</p>
+        <p style="margin-top: 8px; font-size: 0.9em;">Bon appétit! 🍷</p>
+    </div>
+
     <script>
-        // Calendar integration complete - guests can now add event to their calendars
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.dataset.tab;
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Checklist functionality with progress tracking
+        const appetizerChecks = document.querySelectorAll('.appetizer-check');
+        const sideChecks = document.querySelectorAll('.side-check');
+        const mainChecks = document.querySelectorAll('.main-check');
+        const shopItems = document.querySelectorAll('.shop-item');
+
+        function updateProgress() {
+            const appetizerProgress = calculateProgress(appetizerChecks);
+            const sideProgress = calculateProgress(sideChecks);
+            const mainProgress = calculateProgress(mainChecks);
+
+            document.getElementById('appetizer-progress').style.width = appetizerProgress + '%';
+            document.getElementById('side-progress').style.width = sideProgress + '%';
+            document.getElementById('main-progress').style.width = mainProgress + '%';
+        }
+
+        function calculateProgress(checkboxes) {
+            if (checkboxes.length === 0) return 0;
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            return (checkedCount / checkboxes.length) * 100;
+        }
+
+        function addCheckboxListeners(checkboxes) {
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const item = this.closest('.checklist-item');
+                    if (this.checked) {
+                        item.classList.add('checked');
+                    } else {
+                        item.classList.remove('checked');
+                    }
+                    updateProgress();
+                });
+            });
+        }
+
+        addCheckboxListeners(appetizerChecks);
+        addCheckboxListeners(sideChecks);
+        addCheckboxListeners(mainChecks);
+        addCheckboxListeners(shopItems);
+
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all checkboxes? This will clear all your progress.')) {
+                const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                allCheckboxes.forEach(cb => {
+                    cb.checked = false;
+                    cb.closest('.checklist-item').classList.remove('checked');
+                });
+                updateProgress();
+            }
+        }
+
+        // Initial progress calculation
+        updateProgress();
     </script>
 </body>
 </html>
